@@ -1,0 +1,60 @@
+#include <stdio.h>
+
+void Soma() {
+    int indice = 13, soma = 0, K = 0;
+    while (K < indice) {
+        K = K + 1;
+        soma = soma + K;
+    }
+
+    printf("Valor Soma: %d\n", soma);
+}
+
+int pertenceFibonacci(int num) {
+    int a = 0, b = 1, c;
+    if (num == 0)
+        return 1;
+    while (c <= num) {
+        if (c == num)
+            return 1;
+        c = a + b;
+        a = b;
+        b = c;
+    }
+    return 0;
+}
+
+void verificaFibonacci(int numero) {
+    if (pertenceFibonacci(numero))
+        printf("%d pertence \n", numero);
+    else
+        printf("%d nao pertence \n", numero);
+}
+
+void inverterString(char *str) {
+    int tamanho = 0;
+    while (str[tamanho] != '\0') {
+        tamanho++;
+    }
+    for (int i = 0; i < tamanho / 2; i++) {
+        char temp = str[i];
+        str[i] = str[tamanho - i - 1];
+        str[tamanho - i - 1] = temp;
+    }
+}
+
+int main() {
+    //Soma
+    calcularSoma();
+    //Fibonacci
+    int numero;
+    printf("Informe um numero: ");
+    scanf("%d", &numero);
+    verificarFibonacci(numero);
+
+    //Inverte String
+    char frase1[] = "UmaString";
+    inverterString(frase1);
+    printf("String invertida: %s\n", frase1);
+    return 0;
+}
